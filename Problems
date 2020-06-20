@@ -1,0 +1,27 @@
+1.读取xml文件路径，忘记在文件名后加入.xml的后缀，导致文件无法被读取。
+
+2.resources资源文件夹动态读取时，连接路径后的“/”易忘。
+
+3.xml文件中，注释也算是一行数据，如果不进行手动忽略的话。
+
+4.List泛型容器对象，记得需要new来创建新对象。
+
+5.StartCoroutine函数在monobehavior中，所以必须是可挂载（继承自monobehavior）脚本才能调用这个函数
+
+6.Awake()函数是在该脚本挂载单位创建的一瞬间即时调用。
+而Start()函数使在该脚本单位被使用的时候才开始调用。
+
+7.animator动画控制器中，动画anystate状态跳转的时候，注意取消transform to self选项，防止动画一直中断刷新播放。
+8.导入场景注意地表材质信息的覆盖。DemoA.Data;
+
+9.通过脚本绑定可以实现功能分离（多脚本实现单一任务）
+
+10.Unity中所有的文本类型的资源对应的类型为TextAsset,所以除了使用Resources.Load加载以外还可以拖拽赋值
+
+11. 使用url加载的方式读取Resources文件夹下的xml，这样的方式并不推荐使用，这样的方式仅在编辑器模式下可以，发布后Resources文件所有的资源都会被压缩，这时候用Url加载一定找不到文件,即使要使用Url加载也是把Xml文件放在StreamingAssets文件夹下
+
+12. doc.LoadXml(string filePath) 里面的参数是文件路径，不是文件内容。
+
+13.协程不是定时器，而是另外模拟开启一个线程，此时其中的操作可以看作是与主线程Update中的操作同时进行的，如果想要定时的操作必须放在协程函数里。
+
+14.定时器还可以使用 Invoke（string waysName,float time）[waysName:方法名称（默认本文件内），time：需要延迟调用的时间]
