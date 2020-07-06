@@ -25,3 +25,6 @@
 13.协程不是定时器，而是另外模拟开启一个线程，此时其中的操作可以看作是与主线程Update中的操作同时进行的，如果想要定时的操作必须放在协程函数里。
 
 14.定时器还可以使用 Invoke（string waysName,float time）[waysName:方法名称（默认本文件内），time：需要延迟调用的时间]
+
+15.同一个函数内，最好不要同时进行多项Instantiate()和Destroy()等耗费大量内存的操作，很容易导致异常错误，如该销毁的未销毁，该创建的未创建。
+  解决方案:可把要销毁的东西先隐藏起来（SetActive(false)）,然后延时销毁(Destroy(gameobject,time))。
